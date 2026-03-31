@@ -10,7 +10,7 @@ st.title("Visualitation Catalog Stelliant")
 uploaded_file = st.file_uploader("Pour accéder aux visualisations, chargez le catalog en format csv.", type=["csv"])
 
 if uploaded_file is not None:
-    catalog = pd.read_csv(uploaded_file)
+    catalog = pd.read_csv(uploaded_file, sep=';', quotechar='"')
     catalog = catalog.drop(columns=['Sélection des filtres', "Fiche d'Informations", "Rang Occupé?"])
 
     def get_region(x):
